@@ -1,0 +1,41 @@
+<h1>Todos</h1>
+<div>
+    <a href="#!/todos/create" class='btn btn-success'>Add new</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Completed</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="todo in todos">
+        <td>
+            {{todo.title}}
+        </td>
+        <td>
+            <input type='checkbox' ng-click='toggleComplete(todo)' ng-checked="todo.completed"/>
+        </td>
+        <td>
+            {{todo.created_at}}
+        </td>
+        <td>
+            {{todo.updated_at}}
+        </td>
+        <td>
+            <a ng-href="#!/todos/{{todo.id}}" class="btn btn-info active" role="button">Details</a>
+        </td>
+        <td>
+            <a href="#!/todos/{{todo.id}}/edit" class='btn btn-warning'>Edit</a>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger" ng-click="destroy(todo)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<div ng-include="'modules/pagination/templates/pagination.html'" ng-controller="PaginationController"></div>

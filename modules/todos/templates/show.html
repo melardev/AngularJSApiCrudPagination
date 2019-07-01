@@ -1,0 +1,23 @@
+<div ng-show="todo != null" class="container">
+    <div>
+        <h2>{{todo.title}}</h2>
+        <br/>
+        Description:
+        {{todo.description}}
+    </div>
+    <div>
+    </div>
+
+    <label>Completed
+        <input type="checkbox" ng-checked="todo.completed" disabled/>
+    </label>
+
+    <hr/>
+
+    <div class="btn-group btn-group-sm">
+        <a href="#!/" type="button" class="btn btn-success">Back</a>
+        &nbsp;
+        <a class="btn btn-warning" ng-href="#!/todos/{{todo.id}}/edit">Edit</a>
+        &nbsp;
+    </div>
+</div>

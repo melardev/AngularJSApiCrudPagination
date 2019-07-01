@@ -1,0 +1,41 @@
+<div ng-hide="submitted" class="container" style="width: 300px;">
+    <h3>{{todo.id ? 'Update' : 'Create'}} Todo</h3>
+    <form ng-submit="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title"
+                   ng-model="todo.title" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" id="description" required ng-model="todo.description"
+                      ng-value="todo.description"
+                      name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="completed">Completed</label>&nbsp;
+            <input type="checkbox" id="completed" ng-checked="todo.completed" ng-model="todo.completed"
+                   name="completed">
+        </div>
+
+        <div class="row">
+            <button class="btn btn-success" ng-click="createOrUpdateTodo()" ng-disabled="isSubmitting">
+                {{todo.id != null ? 'Update' : 'Create'}}
+            </button>
+            &nbsp;
+            <button ng-show="todo.id != null" class="btn btn-danger" ng-click="destroy(todo)" ng-disabled="isSubmitting">
+                Delete
+            </button>
+            &nbsp;
+            <a class="btn btn-warning" href="#!/" ng-disabled="isSubmitting">
+                Back Home
+            </a>
+        </div>
+    </form>
+</div>
+
+
+
+
